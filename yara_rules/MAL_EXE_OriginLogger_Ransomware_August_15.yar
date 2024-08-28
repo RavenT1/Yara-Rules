@@ -1,3 +1,7 @@
+import "pe"
+import "math"
+import "dotnet"
+
 rule MAL_EXE_OriginLogger_Ransomware_August_15 { 
   meta:
     description = "This rule detects new OriginLogger Ransomware EXE"
@@ -10,15 +14,15 @@ rule MAL_EXE_OriginLogger_Ransomware_August_15 {
     os          = "windows"
     category    = "Malware"
   strings:
-   $s1= "Data Source=../../databases/dbKanji.sqlite;Version=" fullword wide
-   $s2 = "XwiU.exe" fullword ascii 
-   $s3 = "3.1.2.3" fullword ascii
-   $s4 = "16.0.0.0" fullword ascii   
-   $s5 = "config.txt" fullword wide
-   $s6 = "L3t.g!R" fullword ascii 
-   $s7 =  "JapaneseTrainer.strings" fullword ascii 
-   $s8 = "DC54CY4WPCRYGAFC85GZIF" fullword wide
+   $s1= "Data Source=../../databases/dbKanji.sqlite;Version=" fullword wide 
+   $s2 = "DC54CY4WPCRYGAFC85GZIF" fullword wide
+   $s3 = "Database updated - ID:" fullword wide
 
    condition: 
-   5 of ($s*)
+   	uint16(0) == 0x5A4D and
+	for any i in (0..pe.number_of_sections - 1): (
+		math.entropy(pe.sections[i].raw_data_offset, pe.sections[i].raw_data_size) >= 7.95 and
+		pe.sections[i].name == ".text" ) and
+	dotnet.version == "v4.0.30319" and 
+	all of them
 }
