@@ -3,7 +3,7 @@ import "pe"
 rule MAL_EXE_Voldemort_September_10{
    meta:
      description = "This rule detects new Voldemort malware samples"
-     author    	 = "Tolga / Malwation"
+     author    	 = "Tolga"
      date 	 = "2024-09-08"
      sharing 	 = "TLP:AMBER"
      tags   	 = "windows,dll,exe"
