@@ -3,7 +3,7 @@ import "pe"
 rule TOOL_EXE_VeilTransfer_September_13 {
    meta:
      description = "This rule detects VeilTransfer hacktool EXE"
-     author    	 = "Tolga / Malwation"
+     author    	 = "Tolga"
      date 	 = "2024-09-13"
      sharing 	 = "TLP:AMBER"
      tags   	 = "windows,hacktool,exe"
