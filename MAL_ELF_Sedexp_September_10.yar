@@ -3,7 +3,7 @@ import "elf"
 rule MAL_ELF_Sedexp_September_10 {
     meta:
         description = "This rule detects new Sedexp linux malware samples."
-        author      = "Tolga / Malwation"
+        author      = "Tolga"
         date        = "2024-09-10"
         sharing     = "TLP:AMBER"
         tags        = "sedexp,linux,ransomware,elf"
