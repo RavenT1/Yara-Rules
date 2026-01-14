@@ -3,7 +3,7 @@ import "dotnet"
 rule MAL_EXE_GlobalShadow_Backdoor_September_12 { 
   meta:
     description = "This rule detects new GlobalShadow Backdoor EXE"
-    author      = "Tolga / Malwation"
+    author      = "Tolga"
     date        = "2024-09-12"
     sharing     = "TLP:AMBER"
     tags        = "windows,backdoor,exe,dotnet"
